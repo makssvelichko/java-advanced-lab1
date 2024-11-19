@@ -1,6 +1,19 @@
 import java.time.LocalDate;
 
+/**
+ * The Participant class represents a participant with personal and financial details.
+ * This includes their name, surname, city of residence, date of birth, and monthly income.
+ */
 public class Participant {
+    /**
+     * Constructs a Participant instance with the specified details.
+     *
+     * @param name          the participant's first name.
+     * @param surname       the participant's last name.
+     * @param city          the city of residence.
+     * @param dateBirth     the participant's date of birth.
+     * @param monthlyIncome the participant's monthly income.
+     */
     private String name;
     private String surname;
     private String city;
@@ -54,9 +67,16 @@ public class Participant {
     public void setMonthlyIncome(int monthlyIncome) {
         this.monthlyIncome = monthlyIncome;
     }
-
+    /**
+     * Returns a string representation of the participant's details.
+     *
+     * @return a string containing the participant's name, surname, city, date of birth, and monthly income.
+     */
     public String toString() {
-        String var10000 = this.name;
-        return "Participants{name='" + var10000 + "', surname='" + this.surname + "', dateBirth=" + String.valueOf(this.dateBirth) + ", city='" + this.city + "', monthlyIncome=" + this.monthlyIncome + "}";
+        return "Participants{name='" + this.name + "'" +
+                ", surname='" + this.surname + "'," +
+                " dateBirth=" + this.dateBirth + "," +
+                " city='" + this.city + "'," +
+                " monthlyIncome=" + this.monthlyIncome + "}";
     }
 }

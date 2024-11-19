@@ -2,8 +2,16 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-
+/**
+ * Main class that demonstrates filtering, grouping, statistical analysis,
+ * and income analysis of a list of participants.
+ *
+ * @author Velichko Maksim
+ */
 public class Main {
+    /**
+     * Main entry point of the program.
+     */
     public static void main(String[] args) {
         int N = 30;
         String cityToSkip = "Kyiv";
@@ -17,6 +25,7 @@ public class Main {
             System.out.println(participants);
         }
 
+        // Group participants by name if their age is under 40
         Map<String, List<Participant>> groupedParticipant = participant.stream()
                 .filter(item -> item.getDateBirth().isAfter(LocalDate.now().minusYears(40)))
                 .collect(Collectors.groupingBy(Participant::getName));
@@ -24,10 +33,12 @@ public class Main {
             System.out.println(entry.getKey() + ": " + entry.getValue().size());
         }
 
+        // Collect participant statistics
         ParticipantStatisticData statistic = participant.stream()
                 .collect(new ParticipantStatisticCollector());
         System.out.println(statistic);
 
+        // Analyze income distribution and other metrics
         Map<String, Long> incomeAnalysis = IncomeAnalysis.incomeAnalysis(participant);
         System.out.println(incomeAnalysis);
     }
